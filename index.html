@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键词检索</title>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <input type="text" id='fill'>
+    <script>
+        document.querySelector('#fill').oninput=(e)=>{
+            let safer=new Safer();
+            safer.addKeyword(['坏人','神经病']);
+            let result=safer.match(e.target.value);
+            if( result.isMatch ){
+                console.warn(`关键词：${result.keyword}\n匹配内容：${result.content}\n匹配类型：${result.type}`.trim());
+            }
+        }
+    </script>
+</body>
+</html>
